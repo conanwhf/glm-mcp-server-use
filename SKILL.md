@@ -1,6 +1,6 @@
 ---
 name: glm-mcp-server-use
-description: Configure and use the 4 official Z.AI/GLM MCP servers (Vision, Web Search, Web Reader, Zread) for OpenClaw workflows using environment-variable API-key auth. Use when wiring endpoints, inspecting real tool schemas, running smoke tests, or troubleshooting reader/search/zread/vision MCP calls.
+description: GLM MCP Server Use for OpenClaw. Configure and use the 4 official Z.AI / GLM MCP servers (vision, web search, web reader, zread) with environment-variable API-key auth. Use for endpoint wiring, schema inspection, smoke tests, and troubleshooting MCP calls.
 ---
 
 # GLM MCP Server Use
