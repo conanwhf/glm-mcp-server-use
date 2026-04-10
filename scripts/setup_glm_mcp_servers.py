@@ -53,7 +53,7 @@ def add_vision_stdio(config_path: str, api_key: str) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Configure 4 official GLM MCP servers in a mcporter config")
     parser.add_argument("--config", default="./tmp/mcporter-glm.json", help="mcporter config path")
-    parser.add_argument("--api-key", default=None, help="Z.AI API key, default auto-detect")
+    parser.add_argument("--api-key", default=None, help="Z.AI API key (default: read from env vars)")
     parser.add_argument("--keep", action="store_true", help="keep existing config file")
     args = parser.parse_args()
 
@@ -65,7 +65,7 @@ def main() -> int:
 
     api_key = (args.api_key or get_key() or "").strip()
     if not api_key:
-        raise SystemExit("No API key found. Set Z_AI_API_KEY or run with --api-key.")
+        raise SystemExit("No API key found. Set Z_AI_API_KEY (or ZAI_API_KEY/GLM_API_KEY/ZHIPU_API_KEY), or run with --api-key.")
 
     add_http_server(config_path, "web-search-prime", "https://api.z.ai/api/mcp/web_search_prime/mcp", api_key)
     add_http_server(config_path, "web-reader", "https://api.z.ai/api/mcp/web_reader/mcp", api_key)

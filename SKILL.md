@@ -1,26 +1,27 @@
 ---
 name: glm-mcp-server-use
-description: Configure and use the 4 official Z.AI/GLM MCP servers (Vision, Web Search, Web Reader, Zread) in MCP-compatible coding agents (Claude Code, Cline, OpenCode, OpenClaw). Use when setting up API-key auth, wiring endpoints, inspecting real tool schemas, running smoke tests, or troubleshooting reader/search/zread/vision MCP calls.
+description: Configure and use the 4 official Z.AI/GLM MCP servers (Vision, Web Search, Web Reader, Zread) for OpenClaw workflows using environment-variable API-key auth. Use when wiring endpoints, inspecting real tool schemas, running smoke tests, or troubleshooting reader/search/zread/vision MCP calls.
 ---
 
 # GLM MCP Server Use
 
 ## Overview
 
-This skill provides a practical workflow to install, validate, and use the 4 official GLM MCP servers:
+This skill provides a practical workflow to install, validate, and use the 4 official GLM MCP servers in OpenClaw:
 
 1. Vision MCP (local stdio via `@z_ai/mcp-server`)
 2. Web Search MCP (remote HTTP)
 3. Web Reader MCP (remote HTTP)
 4. Zread MCP (remote HTTP)
 
-It also includes scripts to auto-detect API key, generate `mcporter` config, and run a smoke test.
+It also includes scripts to read API key from environment variables, generate `mcporter` config, and run a smoke test.
 
 ## Quick Start
 
 From this skill directory:
 
 ```bash
+export Z_AI_API_KEY="your_zai_api_key"
 python3 scripts/setup_glm_mcp_servers.py --config ./tmp/mcporter-glm.json
 python3 scripts/smoke_test_glm_mcp.py --config ./tmp/mcporter-glm.json
 ```
@@ -29,14 +30,12 @@ Smoke test report will be written to `./tmp/glm-mcp-smoke-report.json`.
 
 ## API Key Resolution
 
-`setup_glm_mcp_servers.py` resolves API key in this order:
+`setup_glm_mcp_servers.py` resolves API key from environment variables in this order:
 
 1. `Z_AI_API_KEY`
 2. `ZAI_API_KEY`
 3. `GLM_API_KEY`
 4. `ZHIPU_API_KEY`
-5. `~/.claude.json` existing MCP Authorization/env entries
-
 You can check key availability without exposing full token:
 
 ```bash

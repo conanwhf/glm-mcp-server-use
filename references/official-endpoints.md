@@ -1,5 +1,14 @@
 # GLM Official MCP Servers - Endpoint Matrix
 
+## OpenClaw Auth Convention
+
+- Use environment variable auth directly (do not depend on Claude config files).
+- Recommended:
+
+```bash
+export Z_AI_API_KEY="your_zai_api_key"
+```
+
 ## 1) Vision MCP Server
 
 - Doc: https://docs.z.ai/devpack/mcp/vision-mcp-server

@@ -5,6 +5,7 @@
 - Workspace: `/Volumes/External/OpenClawWork/coder-workspace/temp/glm-mcp-server-use`
 - Tooling: `mcporter` + GLM official MCP endpoints
 - Report file: `tmp/glm-mcp-smoke-report.json`
+- Auth mode: environment variable (`Z_AI_API_KEY`)
 
 ## What was tested
 
